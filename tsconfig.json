@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    // Файлы не компилируются в .js: запуск через tsx, tsc только проверяет типы
+    "noEmit": true,
+
+    // Environment
+    "module": "nodenext",
+    "target": "es2022",
+    "lib": ["es2022"],
+    "types": ["node"],
+
+    // Strict type checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Interop / misc
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  },
+  "include": ["*.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
