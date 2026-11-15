@@ -44,7 +44,7 @@ const flights: Flight[] = [
     from: "NQZ",
     to: "URA",
     aircraft: "Boeing 737",
-    delayMin: 30,
+    delayMin: 0,
     status: "cancelled",
     international: false
   }
