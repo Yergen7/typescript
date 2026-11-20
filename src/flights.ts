@@ -1,73 +1,73 @@
 // import { log } from "node:console";
 
-// type FlightStatus = "scheduled" | "delayed" | "cancelled";
+type FlightStatus = "scheduled" | "delayed" | "cancelled";
 
-// type AircraftModel =
-//   | "Boeing 737"
-//   | "Boeing 777"
-//   | "Airbus A320";
+type AircraftModel =
+  | "Boeing 737"
+  | "Boeing 777"
+  | "Airbus A320";
 
-// interface Flight {
-//   id: number;
-//   code: string;
-//   from: string;
-//   to: string;
-//   aircraft: AircraftModel;
-//   delayMin: number;
-//   status: FlightStatus;
-//   international: boolean;
-// }
+interface Flight {
+  id: number;
+  code: string;
+  from: string;
+  to: string;
+  aircraft: AircraftModel;
+  delayMin: number;
+  status: FlightStatus;
+  international: boolean;
+}
 
-// const flights: Flight[] = [
-//   {
-//     id: 1,
-//     code: "KC 851",
-//     from: "NQZ",
-//     to: "ALA",
-//     aircraft: "Airbus A320",
-//     delayMin: 0,
-//     status: "scheduled",
-//     international: false
-//   },
-//   {
-//     id: 2,
-//     code: "KC 921",
-//     from: "ALA",
-//     to: "IST",
-//     aircraft: "Boeing 777",
-//     delayMin: 45,
-//     status: "delayed",
-//     international: true
-//   },
-//   {
-//     id: 3,
-//     code: "DV 703",
-//     from: "NQZ",
-//     to: "URA",
-//     aircraft: "Boeing 737",
-//     delayMin: 0,
-//     status: "cancelled",
-//     international: false
-//   }
-// ];
+const flights: Flight[] = [
+  {
+    id: 1,
+    code: "KC 851",
+    from: "NQZ",
+    to: "ALA",
+    aircraft: "Airbus A320",
+    delayMin: 0,
+    status: "scheduled",
+    international: false
+  },
+  {
+    id: 2,
+    code: "KC 921",
+    from: "ALA",
+    to: "IST",
+    aircraft: "Boeing 777",
+    delayMin: 45,
+    status: "delayed",
+    international: true
+  },
+  {
+    id: 3,
+    code: "DV 703",
+    from: "NQZ",
+    to: "URA",
+    aircraft: "Boeing 737",
+    delayMin: 0,
+    status: "cancelled",
+    international: false
+  }
+];
 
-// function delayed(list: Flight[]): Flight[] {
-//   return list.filter((f) => f.status === "delayed");
-// }
+function delayed(list: Flight[]): Flight[] {
+  return list.filter((f) => f.status === "delayed");
+}
 
-// function totalDelay(list: Flight[]): number {
-//   let sum = 0;
+function totalDelay(list: Flight[]): number {
+  let sum = 0;
 
-//   for (const f of list) {
-//     sum = sum + f.delayMin;
-//   }
+  for (const f of list) {
+    sum = sum + f.delayMin;
+  }
 
-//   return sum;
-// }
+  return sum;
+}
 
-// console.log(delayed(flights).map((f) => f.code));
-// console.log(totalDelay(flights));
-// console.log(flights.map((f) => f.aircraft));
+console.log(delayed(flights).map((f) => f.code));
+console.log(totalDelay(flights));
+console.log(flights.map((f) => f.aircraft));
 
 // const xyz: string[] = ["apple", "banana", "chery"];
 
@@ -97,21 +97,21 @@
 // // Прогноз: ["orange", "alice", "bob"]
 // console.log(xyz);
 
-const xyz: string[] = ["apple", "banana", "chery"];
+// const xyz: string[] = ["apple", "banana", "chery"];
 
 // Прогноз: "apple"
 // Метод shift() удаляет и возвращает первый элемент массива
-console.log(xyz.shift());
+// console.log(xyz.shift());
 
 // Новая операция: reverse() переворачивает исходный массив
-xyz.reverse();
+// xyz.reverse();
 
 // Прогноз: ["chery", "banana"]
-console.log(xyz);
+// console.log(xyz);
 
 // Новая операция: includes() проверяет наличие элемента
 // Прогноз: false, потому что "orange" нет в массиве
-console.log(xyz.includes("orange"));
+// console.log(xyz.includes("orange"));
 // let abc: number = 3.14;
 
 // // Прогноз: 3.14
@@ -142,3 +142,30 @@ console.log(xyz.includes("orange"));
 // const xyz: boolean = abc < 2;
 // // Прогноз: true, потому что противоположное значение false — это true
 // console.log(!xyz);
+
+// const nums: number[] = [10, 9, 1, 2, 100];
+// nums.sort();
+// console.log(nums); // [ 1, 10, 100, 2, 9 ]
+// nums.sort((a, b) => a - b);
+// console.log(nums);
+
+const international = flights.filter(function (f) {
+  return f.international;
+});
+
+const routes = flights.map(function (f) {
+  return `${f.from} → ${f.to}`;
+});
+
+const found = flights.find(function (f) {
+  return f.code === "KC 921";
+});
+
+console.log("1");
+console.log(international.map((f) => f.code));
+
+console.log("2");
+console.log(routes);
+
+console.log("3");
+console.log(found?.delayMin);
